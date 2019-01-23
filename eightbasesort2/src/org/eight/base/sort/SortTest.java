@@ -17,7 +17,8 @@ public class SortTest {
 //		sort.insertSort(arrays1);
 		sort.shellSort(arrays1, comparator);
 		System.out.println(Arrays.toString(arrays1));
-		sort.insertSort(arrays2, comparator);
+//		sort.insertSort(arrays2, comparator);
+		sort.shellSort(arrays2);
 		System.out.println(Arrays.toString(arrays2));
 	}
 }

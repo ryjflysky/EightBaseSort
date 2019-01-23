@@ -45,19 +45,18 @@ public class EightBaseSortImpl implements EightBaseSort {
 		}
 		int gap = data.length / 2;
 		while (gap >= 1) {
-			for (int i = 0; i < data.length; i++) {
-				for (int j = i + gap; j < data.length; j+= gap) {
-					if (comparator.compare(data[j - gap], data[j]) > 0) {
-						T temp = data[j - gap];
-						data[j - gap] = data[j];
-						data[j] = temp;
+			for (int i = gap; i < data.length; i++) {
+				for (int j = i - gap; j >= 0; j -= gap) {
+					if (comparator.compare(data[j], data[j + gap]) > 0) {
+						T temp = data[j];
+						data[j] = data[j + gap];
+						data[j + gap] = temp;
 					}
 				}
 			}
 			gap /= 2;
-//			gap = gap >> 2;
+//			gap = gap >> 1;
 		}
-		
 	}
 
 	@Override
@@ -65,6 +64,20 @@ public class EightBaseSortImpl implements EightBaseSort {
 		if (null == data) {
 			return;
 		}
+		int gap = data.length / 2;
+		int dataLen = data.length;
+		while (gap >= 1) {
+			for (int i = gap; i < dataLen; i++) {
+				for (int j = i - gap; j >= 0; j-= gap) {
+					if (data[j].compareTo(data[j + gap]) > 0) {
+						T temp = data[j];
+						data[j] = data[j + gap];
+						data[j + gap] = temp;
+					}
+				}
+			}
+			gap /= 2;
+	//		gap = gap >> 1;
+		}
 	}
-
 }
