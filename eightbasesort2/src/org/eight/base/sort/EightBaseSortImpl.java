@@ -342,9 +342,10 @@ public class EightBaseSortImpl implements IEightBaseSort {
 		mergeSort(data, middle + 1, hight);
 		merge(data, low, middle, hight);
 	}
+	@SuppressWarnings("unchecked")
 	private <T extends Comparable<T>> void merge(T[] data, int low, int middle, int hight) {
-		@SuppressWarnings("unchecked")
-		T[] buf = (T[]) new Object[hight - low + 1]; // 这行代码会报类型转换异常，待解决
+//		T[] buf = (T[]) new Object[hight - low + 1]; // 这行代码会报类型转换异常，解决方式如下
+		Object[] buf = new Object[hight - low + 1]; 
 		int lIndex = low;
 		int hIndex = middle + 1;
 		int index = 0;
@@ -362,7 +363,7 @@ public class EightBaseSortImpl implements IEightBaseSort {
 			buf[index++] = data[hIndex++];
 		}
 		for (int i = 0; i < buf.length; i++) {
-			data[i + low] = buf[i];
+			data[i + low] = (T) buf[i];
 		}
 	}
 }
