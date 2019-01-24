@@ -3,7 +3,7 @@ package org.eight.base.sort;
 import java.util.Comparator;
 
 /**
- * 常见的八个基本排序算法
+ * 常见的八大基本排序算法
  * @author 
  * @version 1.0
  */
