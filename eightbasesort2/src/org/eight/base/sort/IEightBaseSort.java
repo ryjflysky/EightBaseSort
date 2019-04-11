@@ -3,8 +3,8 @@ package org.eight.base.sort;
 import java.util.Comparator;
 
 /**
- * 常见的八大基本排序算法
- * @author 
+ * 常见的八大基本排序算法接口
+ * @author flysky
  * @version 1.0
  */
 public interface IEightBaseSort {
